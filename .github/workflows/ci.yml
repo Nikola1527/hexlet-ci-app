@@ -13,22 +13,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Checkout
-        uses: actions/checkout@v4
+        id: checkout
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+      - run: npm ci
+      - run: npm test
 
       - name: Print Hello from Hexlet
         uses: hexlet-components/hello-from-hexlet-actions@release
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "14"
-
-      - name: Install dependecies
-        run: npm install
-
-      - name: Run npm test
-        run: npm test
 
       - name: Set up Make
         run: |
