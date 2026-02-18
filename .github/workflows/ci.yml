@@ -28,7 +28,7 @@ jobs:
         run: npm test
 
       - name: Print Hello from Hexlet
-        uses: hexlet-components/hello-from-hexlet-actions@release
+        uses: hexlet-components/hello-from-hexlet-action@release
 
       - name: Set up Make
         run: |
