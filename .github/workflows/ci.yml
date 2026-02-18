@@ -13,8 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
+        id: checkout
         uses: actions/checkout@v4
+
+      - name: Print Hello from Hexlet
+        uses: hexlet-components/hello-from-hexlet-action@release
 
       - name: Set up Node.js
         id: setup-node
@@ -26,9 +30,6 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-
-      - name: Print Hello from Hexlet
-        uses: hexlet-components/hello-from-hexlet-action@release
 
       - name: Set up Make
         run: |
